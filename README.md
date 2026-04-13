@@ -27,19 +27,13 @@ Claude Code 全局安装：
 curl -fsSL https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.sh | sh -s -- claude global
 ```
 
-Claude Code 安装到当前项目：
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.sh | sh -s -- claude project
-```
-
-安装到 `~/.agents/skills`：
+OpenCode 全局安装：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.sh | sh -s -- agents
 ```
 
-安装到 `~/.codex/skills`：
+Codex / OpenClaw 全局安装：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.sh | sh -s -- codex
@@ -53,19 +47,13 @@ Claude Code 全局安装：
 & ([scriptblock]::Create((Invoke-RestMethod https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.ps1))) -Target claude -Scope global
 ```
 
-Claude Code 安装到当前项目：
-
-```powershell
-& ([scriptblock]::Create((Invoke-RestMethod https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.ps1))) -Target claude -Scope project
-```
-
-安装到 `~/.agents/skills`：
+OpenCode 全局安装：
 
 ```powershell
 & ([scriptblock]::Create((Invoke-RestMethod https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.ps1))) -Target agents
 ```
 
-安装到 `~/.codex/skills`：
+Codex / OpenClaw 全局安装：
 
 ```powershell
 & ([scriptblock]::Create((Invoke-RestMethod https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.ps1))) -Target codex
@@ -129,7 +117,7 @@ New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null
 git clone --depth 1 https://github.com/SAIL-Fang/leave_skill.git "$HOME\.claude\skills\leave-application-assistant"
 ```
 
-### OpenCode / Agent Skills
+### OpenCode
 
 #### macOS / Linux
 

@@ -1,0 +1,33 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# Logs and temp
+*.log
+*.tmp
+tmp/
+temp/
+
+# Local skill test outputs
+*-workspace/
+feedback.json
+benchmark.json
+benchmark.md
+
+# IDE
+.idea/
+.vscode/

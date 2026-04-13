@@ -2,14 +2,12 @@
 
 > 一个用于辅助填写离职申请、整理离职原因、准备离职面谈回答的 AI Skill。
 
-`离职申请助手` 适合下面这些场景：
+它适合这些场景：
 
 - 不知道离职申请表应该填什么
 - 想把离职原因写得更正式、稳妥、体面
 - 想提前准备 HR / 主管面谈会问到的问题
 - 想整理最后工作日、交接、假期、报销、资产归还等检查项
-
-它不会替你编造事实，而是把你已经知道的信息整理成更适合提交和表达的内容。
 
 ## 功能
 
@@ -19,37 +17,157 @@
 - 准备离职面谈高频问题回答
 - 将敏感或情绪化表达改写为更稳妥的版本
 
-## 安装
+## 快速安装
 
-### Claude Code / OpenCode
+#### macOS / Linux
 
-把 `skills/leave-application-assistant/` 这个目录安装到你的技能目录即可。
+Claude Code 全局安装：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.sh | sh -s -- claude global
+```
+
+Claude Code 安装到当前项目：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.sh | sh -s -- claude project
+```
+
+安装到 `~/.agents/skills`：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.sh | sh -s -- agents
+```
+
+安装到 `~/.codex/skills`：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.sh | sh -s -- codex
+```
+
+#### Windows PowerShell
+
+Claude Code 全局安装：
+
+```powershell
+& ([scriptblock]::Create((Invoke-RestMethod https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.ps1))) -Target claude -Scope global
+```
+
+Claude Code 安装到当前项目：
+
+```powershell
+& ([scriptblock]::Create((Invoke-RestMethod https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.ps1))) -Target claude -Scope project
+```
+
+安装到 `~/.agents/skills`：
+
+```powershell
+& ([scriptblock]::Create((Invoke-RestMethod https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.ps1))) -Target agents
+```
+
+安装到 `~/.codex/skills`：
+
+```powershell
+& ([scriptblock]::Create((Invoke-RestMethod https://raw.githubusercontent.com/SAIL-Fang/leave_skill/main/scripts/install.ps1))) -Target codex
+```
+
+> 如果目标目录已存在，脚本会直接报错，避免覆盖本地修改。
+
+安装完成后，重启或新开一个会话，让宿主重新扫描 skills。
+
+## 快速使用
+
+直接用自然语言触发，例如：
+
+```text
+帮我写一份离职申请
+```
+
+```text
+帮我准备离职面谈，重点是离职原因、未来规划、对公司的建议
+```
+
+```text
+我真实想法是“受不了领导”，帮我改成适合写进离职申请和面谈的话术
+```
+
+## 详细安装 / Installation
+
+仓库地址：`https://github.com/SAIL-Fang/leave_skill.git`
+
+### Claude Code
+
+#### macOS / Linux
+
+安装到当前项目：
+
+```bash
+mkdir -p .claude/skills
+git clone --depth 1 https://github.com/SAIL-Fang/leave_skill.git .claude/skills/leave-application-assistant
+```
+
+全局安装：
+
+```bash
+mkdir -p ~/.claude/skills
+git clone --depth 1 https://github.com/SAIL-Fang/leave_skill.git ~/.claude/skills/leave-application-assistant
+```
+
+#### Windows PowerShell
 
 安装到当前项目：
 
 ```powershell
 New-Item -ItemType Directory -Force .claude\skills | Out-Null
-Copy-Item .\skills\leave-application-assistant .claude\skills\leave-application-assistant -Recurse -Force
+git clone --depth 1 https://github.com/SAIL-Fang/leave_skill.git .claude\skills\leave-application-assistant
 ```
 
 全局安装：
 
 ```powershell
 New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null
-Copy-Item .\skills\leave-application-assistant "$HOME\.claude\skills\leave-application-assistant" -Recurse -Force
+git clone --depth 1 https://github.com/SAIL-Fang/leave_skill.git "$HOME\.claude\skills\leave-application-assistant"
 ```
 
-如果你使用的是 OpenCode / Codex 风格目录，也可以安装到：
+### OpenCode / Agent Skills
+
+#### macOS / Linux
+
+安装到 `~/.agents/skills`：
+
+```bash
+mkdir -p ~/.agents/skills
+git clone --depth 1 https://github.com/SAIL-Fang/leave_skill.git ~/.agents/skills/leave-application-assistant
+```
+
+#### Windows PowerShell
+
+安装到 `~/.agents/skills`：
 
 ```powershell
 New-Item -ItemType Directory -Force "$HOME\.agents\skills" | Out-Null
-Copy-Item .\skills\leave-application-assistant "$HOME\.agents\skills\leave-application-assistant" -Recurse -Force
-
-New-Item -ItemType Directory -Force "$HOME\.codex\skills" | Out-Null
-Copy-Item .\skills\leave-application-assistant "$HOME\.codex\skills\leave-application-assistant" -Recurse -Force
+git clone --depth 1 https://github.com/SAIL-Fang/leave_skill.git "$HOME\.agents\skills\leave-application-assistant"
 ```
 
-安装完成后，重启或新开一个会话，让宿主重新扫描 skills。
+### Codex / OpenClaw 风格目录
+
+#### macOS / Linux
+
+安装到 `~/.codex/skills`：
+
+```bash
+mkdir -p ~/.codex/skills
+git clone --depth 1 https://github.com/SAIL-Fang/leave_skill.git ~/.codex/skills/leave-application-assistant
+```
+
+#### Windows PowerShell
+
+安装到 `~/.codex/skills`：
+
+```powershell
+New-Item -ItemType Directory -Force "$HOME\.codex\skills" | Out-Null
+git clone --depth 1 https://github.com/SAIL-Fang/leave_skill.git "$HOME\.codex\skills\leave-application-assistant"
+```
 
 ## 使用
 
@@ -140,24 +258,28 @@ Copy-Item .\skills\leave-application-assistant "$HOME\.codex\skills\leave-applic
 ```text
 leave_skill/
 ├── README.md
-└── skills/
-    └── leave-application-assistant/
-        ├── SKILL.md
-        └── references/
-            └── templates.md
+├── SKILL.md
+├── scripts/
+│   ├── install.ps1
+│   └── install.sh
+└── references/
+    └── templates.md
 ```
 
 ## 文件说明
 
-- `skills/leave-application-assistant/SKILL.md`
+- `SKILL.md`
   核心 skill 定义，包含触发说明、工作方式、输出格式和处理原则。
 
-- `skills/leave-application-assistant/references/templates.md`
+- `references/templates.md`
   可复用模板，包括：
   - 简短稳妥版离职原因
   - 真诚正式版离职原因
   - 面谈回答模板
   - 提交前检查清单模板
+
+- `scripts/install.sh` / `scripts/install.ps1`
+  用于快速安装到 Claude Code、OpenCode/Agent Skills、Codex 风格目录。
 
 ## 适合与不适合
 

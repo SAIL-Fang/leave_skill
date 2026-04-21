@@ -8,7 +8,9 @@ param(
 
 $repoUrl = 'https://github.com/SAIL-Fang/leave_skill.git'
 $skillName = 'leave-application-assistant'
-
+if ($Target -ne 'claude' -and $Scope -eq 'project') {
+    throw "-Scope project is only supported when -Target claude"
+}
 switch ($Target) {
     'claude' {
         if ($Scope -eq 'project') {

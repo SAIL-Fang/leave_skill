@@ -24,6 +24,9 @@ temp/
 
 # Local skill test outputs
 *-workspace/
+.worktrees/
+docs/
+.opencode
 feedback.json
 benchmark.json
 benchmark.md

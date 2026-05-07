@@ -1,0 +1,23 @@
+{
+  "skill_name": "leave-application-assistant",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我写离职申请",
+      "expected_output": "Assistant asks only for the user's real resignation reason before generating the package, without inventing unknown facts.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "我想离职，真实原因是受不了领导，帮我准备完整离职申请包",
+      "expected_output": "Assistant rewrites the sensitive reason professionally and outputs exactly one complete package with only these three top-level Chinese sections: 离职申请表填写建议, 面谈准备, 提离职流程建议. Unknown facts use placeholders rather than invented values.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "我准备因为职业发展离职，帮我想想怎么跟领导说，以及申请表怎么填",
+      "expected_output": "Assistant generates a complete package without unnecessary questions using exactly these three top-level Chinese sections: 离职申请表填写建议, 面谈准备, 提离职流程建议. It includes interview Q&A preparation, online leader message, multiple meeting-room opening options, placeholders for unknown facts, and positive or neutral-positive descriptions of the company, leader, team, and colleagues.",
+      "files": []
+    }
+  ]
+}
